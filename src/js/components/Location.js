@@ -1,6 +1,6 @@
 import React from "react";
 
-var divStyle = {margin: "20px", border: "5px solid black" };
+var divStyle = {margin: "20px", border: "5px solid whitesmoke" };
 
 
 export default class Location extends React.Component {
