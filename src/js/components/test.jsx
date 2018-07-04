@@ -7,37 +7,41 @@ export default class Login extends React.Component {
 
     constructor(props)
     {
-        super(props)
-        this.state={
-            user: null
+        super(props);
+        this.state = {
+            user: []
         }
+        this.handleSignIn = this.handleSignIn.bind(this);
     }
 
     handleSignIn(e)
     {
-        lets email = this.refs.email.value;
-        lets password = this.refs.password.value;
-        this.props.onSignIn(email,password);
-    }
-
-    signIn(email,password)
-    {
-        //Get your Backend Data here for checking the username and password
+        console.log("This happend");
+        let email = this.refs.email.value
+        let password = this.refs.password.value
+        //get value from database here.
+        const a = [email,password]
         if(email==="test" && password==="test")
         {
             this.setState({
-                user:{
+                user: {
                     email,
                     password,
                 }
             })
         }
+        else
+        {
+            console.log("Wrong");
+        }
     }
+
+
+
 
   render() {
     return (
         <div>
-        {(this.state.user) ? 
             <div class='container panelstart'>
                 <div class="row">
                     <div class="column-xs-6">
@@ -47,10 +51,11 @@ export default class Login extends React.Component {
                             </div>
                             <div class='panel-body'>
                                 <h3>Login to make a booking</h3><br /><br />
+                                Welcome! {this.state.user}
                                 <form class="form-group" onSubmit={this.handleSignIn.bind(this)} action="#">
-                                <input type="text" placeholder="Email" class="form-control" ref="email" /><br />
-                                <input type="password" placeholder="Password" class="form-control" ref="password" /><br />
-                                <input type="submit" value="Login"class="btn btn-primary" />Login
+                                    <input type="text" placeholder="Email" class="form-control" ref="email" /><br />
+                                    <input type="password" placeholder="Password" class="form-control" ref="password" /><br />
+                                    <input type="submit" value="Login" class="btn btn-primary"/>
                                 </form>
                             </div>
                             <div class="panel-footer">
@@ -60,10 +65,7 @@ export default class Login extends React.Component {
                     </div>
                 </div>
             </div>
-            :
-            <h1>Welcome!!</h1>
         </div>
-        }
     );
   }
 }
