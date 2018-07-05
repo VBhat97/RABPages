@@ -1,6 +1,7 @@
 import React from "react";
 
 var frameStyle = {margin: "20px", border: "5px solid whitesmoke" };
+var panelMod = {width: "800px"};
 
 
 export default class Login extends React.Component {
@@ -24,13 +25,13 @@ export default class Login extends React.Component {
         if(email==="test" && password==="test")
         {
             this.setState({
-                user: "Correct email and password! Welcome : " + email,
+                user: email
             })
         }
         else
         {
             this.setState({
-                user: "Username and password do not match."
+                user: "Email and password do not match."
             })
         }
     }
@@ -41,7 +42,7 @@ export default class Login extends React.Component {
   render() {
     return (
         <div>
-            <div class='container panelstart'>
+            <div class='container panelstart' style={panelMod}>
                 <div class="row">
                     <div class="column-xs-6">
                         <div class='panel panel-primary'>
@@ -51,6 +52,7 @@ export default class Login extends React.Component {
                             <div class='panel-body'>
                                 <h3>Login to make a booking</h3><br /><br />
                                 {this.state.user}
+                                <br />
                                 <form class="form-group" onSubmit={this.handleSignIn.bind(this)} action="#">
                                     <input type="text" placeholder="Email" class="form-control" ref="email" /><br />
                                     <input type="password" placeholder="Password" class="form-control" ref="password" /><br />
