@@ -5,6 +5,7 @@ var errorStyle = {color : "red"};
 var lowerCaseLetters = /[a-z]/g;
 var upperCaseLetters = /[A-Z]/g;
 var numbers = /[0-9]/g;
+var panelmod = {width : "400px"}
 
 
 export default class Signup extends React.Component {
@@ -104,7 +105,7 @@ export default class Signup extends React.Component {
   render() {
     return (
         <div>
-            <div class='container panelstart'>
+            <div class='container panelstart' style={panelmod}>
                 <div class="row">
                     <div class="column-xs-6">
                         <div class='panel panel-primary'>
@@ -120,7 +121,7 @@ export default class Signup extends React.Component {
                                         <h5 style={errorStyle}>{this.state.emailValidation}</h5>
                                     <input type="password" placeholder="Password" class='form-control' ref="password" onChange={this.handlePassword.bind(this)}/>
                                         <h5 style={errorStyle}>{this.state.passwordValidation}</h5>
-                                    <input type="cpassword" placeholder="Confirm Password" class='form-control' ref="confpassword" onChange={this.handlecPassword.bind(this)} /><br />
+                                    <input type="cpassword" placeholder="Confirm Password" class='form-control' ref="confpassword" onChange={this.handlecPassword.bind(this)} />
                                         <h5 style={errorStyle}>{this.state.confpasswordValidation}</h5>
                                     <input type="submit" value="Signup" class="btn btn-primary"/>
                                 </form>
