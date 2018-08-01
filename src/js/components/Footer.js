@@ -1,6 +1,5 @@
 import React from "react";
 
-var footerbg = {backgroundColor: "#263238"}
 
 export default class Footer extends React.Component {
 
